@@ -12,10 +12,14 @@ pub enum RepositoryError {
     TomlDe(#[from] toml::de::Error),
     #[error("JSON serialization error: {0}")]
     JsonSer(#[from] serde_json::Error),
-    #[error("Repository configuration not found in the current directory or parent directories.")]
+    #[error(
+        "Repository configuration not found in the current directory or parent directories."
+    )]
     ConfigNotFound,
     #[error("Package not found: {0}")]
     PackageNotFound(String),
+    #[error("IPak Error: {0}")]
+    IPakError(#[from] ipak::prelude::ipak::error::Error),
     #[error("Package {0} version {1} already exists.")]
     PackageAlreadyExists(String, String),
 }
