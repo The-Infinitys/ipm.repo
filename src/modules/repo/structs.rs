@@ -1,4 +1,4 @@
-use crate::utils::url::Url;
+use url::Url;
 use chrono::{DateTime, Local};
 use ipak::modules::pkg::PackageData;
 use sha2::Sha256;
